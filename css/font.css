@@ -1,0 +1,37 @@
+@font-face {
+    font-family: "Montserrat";
+    src: url(../assets/fonts/Montserrat-Regular.ttf) format(truetype);
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Montserrat";
+    src: url(../assets/fonts/Montserrat-Italic.ttf) format(truetype);
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: "Montserrat";
+    src: url(../assets/fonts/Montserrat-Bold.ttf) format(truetype);
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Montserrat";
+    src: url(../assets/fonts/Montserrat-BoldItalic.ttf) format(truetype);
+    font-weight: bold;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: "All Round Gothic";
+    src: url(../assets/fonts/Fontspring-DEMO-allroundgothic-bold.otf) format(opentype);
+}
+
+@font-face {
+    font-family: "Nanum Pen Script";
+    src: url(../assets/fonts/NanumPenScript-Regular.ttf) format(truetype);
+}
