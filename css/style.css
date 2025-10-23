@@ -1,0 +1,186 @@
+@import url(./reset.css);
+@import url(./font.css);
+@import url(./settings.css);
+
+/* --- GLOBAL STYLE --- */
+h1 {
+    position: absolute;
+    clip: rect(1px, 1px, 1px, 1px);
+    -webkit-clip-path: inset(0px 0px 99.9% 99.9%);
+    clip-path: inset(0px 0px 99.9% 99.9%);
+    overflow: hidden;
+    height: 1px;
+    width: 1px;
+}
+
+h2 {
+    font-family: "All Round Gothic";
+    text-transform: uppercase;
+    font-size: var(--large-text);
+    margin-bottom: var(--large-gap);
+}
+
+h3, p, li {
+    font-family: "Montserrat";
+    font-size: var(--medium-text);
+    line-height: 1.2;
+}
+p b, li b, li em {
+    font-weight: bold;
+}
+
+li em {
+    color: var(--secondary-color);
+}
+
+a:link, a:visited {
+    color: var(--primary-color);
+}
+a:hover, a:active {
+    color: var(--primary-color);
+}
+
+
+/* --- HEADER --- */
+header {
+    border-bottom: 3px var(--primary-color) solid;
+}
+
+header nav ul {
+    display: flex;
+    justify-content: space-between;
+    margin: var(--medium-gap) var(--3xl-gap);
+}
+
+header nav ul li, header nav ul li a {
+    display: flex;
+    align-items: center;
+    font-family: "All Round Gothic";
+    text-transform: uppercase;
+    font-size: var(--large-text);
+}
+
+header nav ul li span:last-child {
+    margin-left: var(--small-gap);
+}
+
+header nav ul li a:link, header nav ul li a:visited {
+    color: var(--secondary-color);
+    text-decoration: none;
+}
+header nav ul li a:link svg path, header nav ul li a:visited svg path {
+    fill: var(--secondary-color);
+}
+
+header nav ul li a:hover, header nav ul li a:active {
+    color: var(--primary-color);
+    text-decoration: underline;
+}
+header nav ul li a:hover svg path, header nav ul li a:active svg path {
+    fill: var(--primary-color);
+}
+
+/* --- MAIN --- */
+.flow {
+    margin: var(--2xl-gap) var(--3xl-gap);
+}
+
+.flow section {
+    margin-bottom: var(--2xl-gap);
+}
+
+.double-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--large-gap);
+    @media (max-width: 1080px) {
+        grid-template-columns: 1fr;
+    }
+}
+
+.triple-col {
+    
+}
+
+.text-with-img {
+    display: flex;
+    @media (max-width: 800px) {
+        flex-direction: column;
+    }
+}
+.text-with-img svg {
+    height: var(--svg-size);
+    @media (max-width: 800px) {
+        align-self: center;
+        margin-top: var(--large-gap);
+    }
+}
+.text-with-img > div {
+    @media (min-width: 801px) {
+        max-width: 60%;
+        margin-right: auto;
+    }
+}
+
+.timeline {
+    display: flex;
+    flex-direction: column-reverse;
+}
+.timeline li {
+    display: flex;
+    align-items: center;
+    margin-bottom: var(--large-gap);
+}
+.timeline svg {
+    aspect-ratio: 1;
+    width: var(--circle-size);
+    min-width: 20px;
+    margin-right: var(--large-gap);
+}
+
+.cards-list li {
+    display: flex;
+    padding: 20px;
+    border: var(--border-size) var(--primary-color) solid;
+    border-radius: 30px;
+    @media (max-width: 600px) {
+        border-radius: 20px;       
+    }
+}
+.cards-list li svg {
+    width: var(--icon-size);
+    height: 42px;
+    justify-self: center;
+}
+.cards-list li span, .cards-list li a {
+    align-self: center;
+    margin-left: var(--medium-gap);
+}
+
+.cards-list li:hover {
+    transition: ease-out 0.15s;
+    background-color: var(--primary-color);
+    color: var(--background-color);
+    fill: var(--background-color);
+}
+.cards-list li:hover a {
+    transition: ease-out 0.15s;
+    color: var(--background-color);
+}
+
+
+
+
+
+/* --- FOOTER --- */
+footer {
+    display: flex;
+    justify-content: center;
+    background-color: var(--primary-color);
+    padding: var(--large-gap) 0;
+}
+
+footer p {
+    color: var(--background-color);
+    font-weight: bold;
+}
