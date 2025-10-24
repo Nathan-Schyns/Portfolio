@@ -1,0 +1,50 @@
+header {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    border-bottom: 3px var(--primary-color) solid;
+    background-color: var(--background-color);
+    padding: var(--medium-gap) var(--3xl-gap);
+}
+
+header nav ul {
+    display: flex;
+    justify-content: space-between;
+    
+}
+
+header nav ul li, header nav ul li a {
+    display: flex;
+    align-items: center;
+    font-family: "All Round Gothic";
+    text-transform: uppercase;
+    font-size: var(--large-text);
+}
+
+header nav ul li span:last-child {
+    margin-left: var(--small-gap);
+}
+
+header nav ul li a:link, header nav ul li a:visited {
+    color: var(--secondary-color);
+    text-decoration: none;
+}
+
+header nav ul li a:link svg path, header nav ul li a:visited svg path {
+    fill: var(--secondary-color);
+}
+
+header nav ul li a:hover, header nav ul li a:active {
+    color: var(--primary-color);
+    text-decoration: underline;
+}
+
+header nav ul li a:hover svg path, header nav ul li a:active svg path {
+    fill: var(--primary-color);
+}
+
+header nav ul li a span, header nav ul li span {
+    @media (max-width: 800px) {
+        display: none;
+    }
+}

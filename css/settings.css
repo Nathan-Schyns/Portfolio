@@ -18,6 +18,7 @@
     --circle-size: clamp(1rem, 0.7692rem + 1.0256vw, 2rem);
     --icon-size: clamp(1.875rem, 1.4423rem + 1.9231vw, 3.75rem);
     --border-size: clamp(0.1875rem, 0.1442rem + 0.1923vw, 0.375rem);
+    --line-offset: clamp(0.4375rem, 0.3654rem + 0.3205vw, 0.75rem);
 
     --primary-color: #000;
     --secondary-color: #999;

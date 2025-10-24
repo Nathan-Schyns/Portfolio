@@ -1,8 +1,17 @@
 @import url(./reset.css);
 @import url(./font.css);
 @import url(./settings.css);
+@import url(./animation.css);
+
+@import url(./header.css);
+@import url(./footer.css);
+
+
+
+
 
 /* --- GLOBAL STYLE --- */
+
 h1 {
     position: absolute;
     clip: rect(1px, 1px, 1px, 1px);
@@ -25,7 +34,8 @@ h3, p, li {
     font-size: var(--medium-text);
     line-height: 1.2;
 }
-p b, li b, li em {
+
+h3, p b, li b, li em {
     font-weight: bold;
 }
 
@@ -36,51 +46,17 @@ li em {
 a:link, a:visited {
     color: var(--primary-color);
 }
+
 a:hover, a:active {
     color: var(--primary-color);
 }
 
 
-/* --- HEADER --- */
-header {
-    border-bottom: 3px var(--primary-color) solid;
-}
 
-header nav ul {
-    display: flex;
-    justify-content: space-between;
-    margin: var(--medium-gap) var(--3xl-gap);
-}
 
-header nav ul li, header nav ul li a {
-    display: flex;
-    align-items: center;
-    font-family: "All Round Gothic";
-    text-transform: uppercase;
-    font-size: var(--large-text);
-}
-
-header nav ul li span:last-child {
-    margin-left: var(--small-gap);
-}
-
-header nav ul li a:link, header nav ul li a:visited {
-    color: var(--secondary-color);
-    text-decoration: none;
-}
-header nav ul li a:link svg path, header nav ul li a:visited svg path {
-    fill: var(--secondary-color);
-}
-
-header nav ul li a:hover, header nav ul li a:active {
-    color: var(--primary-color);
-    text-decoration: underline;
-}
-header nav ul li a:hover svg path, header nav ul li a:active svg path {
-    fill: var(--primary-color);
-}
 
 /* --- MAIN --- */
+
 .flow {
     margin: var(--2xl-gap) var(--3xl-gap);
 }
@@ -99,7 +75,16 @@ header nav ul li a:hover svg path, header nav ul li a:active svg path {
 }
 
 .triple-col {
+    display: grid;
     
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: var(--large-gap);
+    @media (max-width: 1080px) {
+        grid-template-columns: 1fr 1fr;
+    }
+    @media (max-width: 500px) {
+        grid-template-columns: 1fr;
+    }
 }
 
 .text-with-img {
@@ -108,6 +93,7 @@ header nav ul li a:hover svg path, header nav ul li a:active svg path {
         flex-direction: column;
     }
 }
+
 .text-with-img svg {
     height: var(--svg-size);
     @media (max-width: 800px) {
@@ -115,6 +101,7 @@ header nav ul li a:hover svg path, header nav ul li a:active svg path {
         margin-top: var(--large-gap);
     }
 }
+
 .text-with-img > div {
     @media (min-width: 801px) {
         max-width: 60%;
@@ -122,39 +109,31 @@ header nav ul li a:hover svg path, header nav ul li a:active svg path {
     }
 }
 
-.timeline {
-    display: flex;
-    flex-direction: column-reverse;
-}
-.timeline li {
-    display: flex;
-    align-items: center;
-    margin-bottom: var(--large-gap);
-}
-.timeline svg {
-    aspect-ratio: 1;
-    width: var(--circle-size);
-    min-width: 20px;
-    margin-right: var(--large-gap);
-}
-
 .cards-list li {
     display: flex;
-    padding: 20px;
+    align-items: center;
     border: var(--border-size) var(--primary-color) solid;
     border-radius: 30px;
     @media (max-width: 600px) {
         border-radius: 20px;       
     }
 }
+
 .cards-list li svg {
     width: var(--icon-size);
     height: 42px;
-    justify-self: center;
+    margin-right: var(--medium-gap);
 }
-.cards-list li span, .cards-list li a {
+
+.cards-list li a {
+    display: flex;
+    flex-grow: 1;
+    padding: 20px;
+}
+
+.cards-list li span, .cards-list li a span {
     align-self: center;
-    margin-left: var(--medium-gap);
+    
 }
 
 .cards-list li:hover {
@@ -163,24 +142,127 @@ header nav ul li a:hover svg path, header nav ul li a:active svg path {
     color: var(--background-color);
     fill: var(--background-color);
 }
+
 .cards-list li:hover a {
     transition: ease-out 0.15s;
     color: var(--background-color);
 }
 
+.cards-list li:after {
+    -webkit-animation: slide-top 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+    animation: slide-top 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
 
 
 
 
-/* --- FOOTER --- */
-footer {
+
+/* --- INDEX --- */
+
+
+
+
+
+
+
+/* --- ABOUT --- */
+
+.timeline {
+    position: relative;
     display: flex;
-    justify-content: center;
-    background-color: var(--primary-color);
-    padding: var(--large-gap) 0;
+    flex-direction: column-reverse;
 }
 
-footer p {
-    color: var(--background-color);
-    font-weight: bold;
+.timeline li {
+    display: flex;
+    align-items: center;
 }
+
+.timeline li + li {
+    margin-bottom: var(--large-gap);
+}
+
+.timeline svg {
+    aspect-ratio: 1;
+    width: var(--circle-size);
+    min-width: 20px;
+    margin-right: var(--large-gap);
+}
+
+.timeline::before {
+    content: "";
+    position: absolute;
+    width: 6px;
+    height: 100%;
+    background-color: var(--primary-color);
+    left: var(--line-offset);
+}
+
+.skills .cards-list li {
+    padding: 20px;
+    cursor: help;
+}
+
+.skills .cards-list li:hover span {
+    display: none;
+}
+
+.web-design:hover:after {
+    content: "Pour mes maquettes interactives !";
+}
+
+.graphism:hover:after {
+    content: "Pour présenter mes projets !";
+}
+
+.illustration:hover:after {
+    content: "Pour ajouter de la vie à mes projets !";
+}
+
+.front-end:hover:after {
+    content: "Pour de jolies pages web !";
+}
+
+.back-end:hover:after {
+    content: "Pour des pages web fonctionnelles !";
+}
+
+.versioning:hover:after {
+    content: "Pour stocker et gérer mon code !";
+}
+
+.mobile:hover:after {
+    content: "Pour des applications mobile !";
+}
+
+
+
+
+
+/* --- PROJECT --- */
+
+.preview-list {
+    margin-bottom: var(--2xl-gap);
+}
+
+.preview-list a {
+    text-decoration: none;
+}
+
+.preview-list a h3 {
+    display: block;
+    margin-top: var(--medium-gap);
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.preview-list a:hover svg {
+    transform: scale(1.05) rotate(-5deg);
+    transition: ease-in-out 0.15s;
+    transform-origin: 50% 50%;
+}
+
+.preview-list a:hover h3 {
+    text-decoration: underline;
+}
+
