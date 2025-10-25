@@ -159,6 +159,66 @@ a:hover, a:active {
 
 /* --- INDEX --- */
 
+.index {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.index h2 {
+    text-align: center;
+    font-size: var(--xl-text);
+    margin-top: 27.5vh;
+}
+
+.index h2 b, .index h2 strong {
+    font-size: var(--2xl-text);
+    text-align: center;
+}
+
+.index a, .index span {
+    font-family: "Nanum Pen Script";
+    text-transform: uppercase;
+    font-size: var(--large-text);
+}
+
+.index ul {
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    gap: var(--xl-gap);
+    position: absolute;
+    bottom: 40px;
+    @media (max-width: 800px) {
+        flex-direction: column;
+        margin-bottom: var(--medium-gap);
+    }
+}
+
+.index ul li {
+    display: flex;
+    align-items: center;
+    transform: rotate(-5deg);
+}
+
+.index ul li svg {
+    width: var(--icon-size);
+    aspect-ratio: 1;
+    margin-right: var(--medium-gap);
+}
+
+.decorations {
+    display: none;
+}
+
+#canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -10;
+}
 
 
 
