@@ -121,7 +121,7 @@ a:hover, a:active {
 
 .cards-list li svg {
     width: var(--icon-size);
-    height: 42px;
+    height: 43px;
     margin-right: var(--medium-gap);
 }
 
@@ -168,7 +168,7 @@ a:hover, a:active {
 .index h2 {
     text-align: center;
     font-size: var(--xl-text);
-    margin-top: 27.5vh;
+    margin-top: 25vh;
 }
 
 .index h2 b, .index h2 strong {
@@ -180,6 +180,10 @@ a:hover, a:active {
     font-family: "Nanum Pen Script";
     text-transform: uppercase;
     font-size: var(--large-text);
+}
+
+.index span {
+    transform: rotate(-5deg);
 }
 
 .index ul {
@@ -195,10 +199,11 @@ a:hover, a:active {
     }
 }
 
-.index ul li {
+.index ul li a {
     display: flex;
     align-items: center;
     transform: rotate(-5deg);
+    pointer-events: auto;
 }
 
 .index ul li svg {
@@ -208,18 +213,67 @@ a:hover, a:active {
 }
 
 .decorations {
-    display: none;
+    text-align: center;
+    pointer-events: none;
+    z-index: 2;
+    @media (max-width: 600px) {
+        display: none;
+    }
 }
 
-#canvas {
+.outlined {
+    z-index: 2;
+    pointer-events: none;
+    text-shadow: -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff;
+}
+
+h2.outlined {
+    text-shadow: -3px -3px 0 #fff, 3px -3px 0 #fff, -3px 3px 0 #fff, 3px 3px 0 #fff;
+}
+
+#about {
+    position: absolute;
+    top: 15vh;
+    left: 12.5vw;
+}
+
+#index {
+    position: absolute;
+    top: 15vh;
+    left: 42.5vw;
+}
+
+#project {
+    position: absolute;
+    top: 15vh;
+    left: 72.5vw;
+}
+
+#avatar {
+    position: absolute;
+    right: 2.5vw;
+    bottom: 0;
+    transform-origin: bottom;
+    @media (max-width: 1080px) {
+        display: none;
+    }
+}
+
+#night {
+    position: absolute;
+    left: 5vw;
+    bottom: 15vh;
+    color: var(--background-color);
+}
+
+#drawing-board {
     position: absolute;
     top: 0;
     left: 0;
     width: 100vw;
     height: 100vh;
-    z-index: -10;
+    z-index: 1;
 }
-
 
 
 
