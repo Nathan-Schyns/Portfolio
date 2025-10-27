@@ -6,10 +6,6 @@
 @import url(./header.css);
 @import url(./footer.css);
 
-
-
-
-
 /* --- GLOBAL STYLE --- */
 
 h1 {
@@ -29,7 +25,7 @@ h2 {
     margin-bottom: var(--large-gap);
 }
 
-h3, p, li {
+h3, p, li, .modal a, .nav a {
     font-family: "Montserrat";
     font-size: var(--medium-text);
     line-height: 1.2;
@@ -51,6 +47,15 @@ a:hover, a:active {
     color: var(--primary-color);
 }
 
+::selection {
+    color: var(--background-color);
+    background-color: var(--primary-color);
+}
+
+footer ::selection {
+    color: var(--primary-color);
+    background-color: var(--background-color);
+}
 
 
 
@@ -136,14 +141,14 @@ a:hover, a:active {
     
 }
 
-.cards-list li:hover {
+.cards-list li:hover, .modal-content > div a:hover {
     transition: ease-out 0.15s;
     background-color: var(--primary-color);
     color: var(--background-color);
     fill: var(--background-color);
 }
 
-.cards-list li:hover a {
+.cards-list li:hover a, .modal-content > div a:hover {
     transition: ease-out 0.15s;
     color: var(--background-color);
 }
@@ -214,7 +219,7 @@ a:hover, a:active {
 
 .decorations {
     text-align: center;
-    pointer-events: none;
+    cursor: default;
     z-index: 2;
     @media (max-width: 600px) {
         display: none;
@@ -223,7 +228,7 @@ a:hover, a:active {
 
 .outlined {
     z-index: 2;
-    pointer-events: none;
+    cursor: default;
     text-shadow: -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff;
 }
 
@@ -359,24 +364,216 @@ h2.outlined {
     margin-bottom: var(--2xl-gap);
 }
 
-.preview-list a {
-    text-decoration: none;
+.preview-list button {
+    padding: 0;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
 }
 
-.preview-list a h3 {
+.preview-list button h3 {
     display: block;
     margin-top: var(--medium-gap);
     text-align: center;
     text-transform: uppercase;
 }
 
-.preview-list a:hover svg {
+.preview-list button:hover svg {
     transform: scale(1.05) rotate(-5deg);
     transition: ease-in-out 0.15s;
     transform-origin: 50% 50%;
 }
 
-.preview-list a:hover h3 {
+.preview-list button:hover h3 {
     text-decoration: underline;
 }
 
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.8);
+  justify-content: center;
+  align-items: center;
+  z-index: 11;
+}
+
+.modal.active {
+  display: flex;
+}
+
+.modal-content {
+  background: var(--background-color);
+  border-radius: 30px;
+  width: 80vw;
+  max-height: 92.5vh;
+  position: relative;
+  border: 5px var(--primary-color) solid;
+  overflow: scroll;
+}
+
+.modal-content img {
+    width: 100%;
+}
+
+.modal-content p {
+    margin: var(--xl-gap) var(--2xl-gap);
+}
+
+.modal-content > div {
+    display: flex;
+    justify-content: space-between;
+    gap: var(--medium-gap);
+    margin: 0 var(--2xl-gap) var(--xl-gap);
+    @media (max-width: 1080px) {
+        flex-direction: column;
+    }
+}
+
+.modal-content > div a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+    padding: 20px;
+    border: var(--border-size) var(--primary-color) solid;
+    border-radius: 30px;
+}
+
+.modal-content > div svg {
+    width: var(--icon-size);
+    height: auto;
+    margin-right: var(--medium-gap);
+}
+
+.logofolio {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: auto;
+    @media (max-width: 800px) {
+        grid-template-columns: 100%;
+    }
+}
+
+.logofolio li {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 320px;
+}
+
+.logofolio li.black-bg {
+    background-color: var(--primary-color);
+}
+
+.logofolio li svg {
+    margin: 0 var(--xl-gap);
+}
+
+.logofolio li img {
+    width: auto;
+    height: 80%;
+    aspect-ratio: 1;
+}
+
+.modal-content .slider {
+    display: block;
+    position: relative;
+    width: 100%;
+    max-width: 80vw;
+    margin: 0;
+    overflow: hidden;
+}
+
+.slides {
+  display: flex;
+  transition: transform 0.6s ease;
+  width: 300%;
+}
+
+.modal-content .nav {
+  display: flex;
+  flex-direction: row;
+  margin: var(--medium-gap);
+}
+
+div.nav a {
+    display: inline-block;
+    padding: 10px;
+    border-radius: 15px;
+    text-transform: uppercase;
+    text-align: center;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.slides img {
+  width: 100%;
+  object-fit: cover;
+}
+
+#overlay-1:target ~ .slides {
+  transform: translateX(0%);
+}
+
+#overlay-2:target ~ .slides {
+  transform: translateX(-100%);
+}
+
+#overlay-3:target ~ .slides {
+  transform: translateX(-200%);
+}
+
+.modal-content .illustrations-3 {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    margin: 0;
+    gap: 0;
+}
+
+.modal-content .illustrations-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin: 0;
+    gap: 0;
+}
+
+.modal-content .illustrations-1 {
+    margin: 0;
+    gap: 0;
+}
+
+.modal-content.pixel-art {
+    background-image: url(../assets/img/pixel_art/bg.jpg);
+    background-position: center;
+    background-size: cover;
+}
+
+.modal-content.pixel-art div {
+    flex-direction: row;
+    margin: var(--2xl-gap);
+}
+
+.modal-content.pixel-art img {
+    width: 300px;
+    object-fit: contain;
+    object-position: bottom;
+}
+
+.modal-content.pixel-art img:nth-child(2n) {
+    margin-bottom: var(--xl-gap);
+}
+
+.modal-content.pixel-art img:last-child {
+    padding-right: var(--xl-gap);
+}
+
+
+
+.close {
+  position: absolute;
+  right: 10px;
+  top: 5px;
+  font-size: 1.5em;
+  cursor: pointer;
+}
